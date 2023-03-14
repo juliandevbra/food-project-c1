@@ -1,21 +1,15 @@
 import { useState } from 'react'
 import './App.css'
-import ClassComponent from './Components/ClassComponent'
-import FuncComponent from './Components/FuncComponent'
+import DogCarrousel from './Components/DogCarrousel'
+import Home from './Components/Home'
 
 function App() {
-  const [toggle, setToggle] = useState(false)
+
   return (
     <div className="App">
-      {toggle ? 
-        <ClassComponent titulo='Esto es un componente de clase'/>
-        :
-        <FuncComponent titulo='Esto es un componente de función'/>
-      }
-      <button onClick={() => setToggle(!toggle)}>
-        Cambiar de componente {toggle ? 'de función' : 'de clase'}
-      </button>
-    </div> 
+      <Home/>
+      {/* <DogCarrousel/> */}
+    </div>
   )
 }
 
