@@ -13,6 +13,8 @@ const Navbar = () => {
        <Link to={routes.about}><h3>About</h3></Link>
        <Link to={routes.contact}><h3>Contact</h3></Link>
        <Link to={routes.menues}><h3>Menues</h3></Link>
+       <Link to='/vegetarians'><h3>Vegetarianos</h3></Link>
+       <Link to='/deserts'><h3>Postres</h3></Link>
     </div>
   )
 }

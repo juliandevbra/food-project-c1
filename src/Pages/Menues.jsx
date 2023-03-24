@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import Card from '../Components/Card'
 
-const Menues = () => {
+const Menues = ({recipes}) => {    
+
   return (
-    <div>Menues</div>
+    <div>
+              {recipes.map(recipe => <Link to={'/recipe/' + recipe.id} key={recipe.id}><Card recipe={recipe}/></Link>)}
+
+    </div>
   )
 }
 
