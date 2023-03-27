@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import Card from '../Components/Card'
-import RecipeSelected from '../Components/RecipeSelected'
+import RecipeSelected from './RecipeSelected'
 
 const Home = () => {
 
