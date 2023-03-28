@@ -12,24 +12,34 @@ import NotFound from './Pages/NotFound'
 import Vegetarians from './Components/Vegetarians'
 import Veggies from './Components/Veggies'
 import { routes } from './routes'
+import LoginForm from './Components/LoginForm'
+import { useRecipeStates } from './RecipeContext'
 
 function App() {
+  
+  const {auth} = useRecipeStates()
 
   return (
     <div className="App">
-      <Navbar/>
+      {!auth && <Navbar/>}
           <Routes>
-            <Route path={routes.home} element={<Home/>}>
-              <Route path='/vegetarians' element={<Vegetarians/>}>
-                <Route path='/vegetarians/veggies' element={<Veggies/>}/>
+            { auth ? 
+              <Route path='/' element={<LoginForm/>}/> 
+            :
+            <>
+              <Route path='/' element={<Home/>}>
+                <Route path='/vegetarians' element={<Vegetarians/>}>
+                  <Route path='/vegetarians/veggies' element={<Veggies/>}/>
+                </Route>
+                <Route path='/deserts' element={<Deserts/>}/>
               </Route>
-              <Route path='/deserts' element={<Deserts/>}/>
-            </Route>
-            <Route path={routes.contact} element={<Contact/>}/>
-            <Route path={routes.about} element={<About/>}/>
-            <Route path={routes.menues} element={<Menues/>}/>
-            <Route path='/recipe/:id' element={<RecipeSelected />}/>
-            <Route path='*' element={<NotFound/>}/>
+              <Route path={routes.contact} element={<Contact/>}/>
+              <Route path={routes.about} element={<About/>}/>
+              <Route path={routes.menues} element={<Menues/>}/>
+              <Route path='/recipe/:id' element={<RecipeSelected />}/>
+              <Route path='*' element={<NotFound/>}/>
+            </>
+            } 
           </Routes>
     </div>
   )
