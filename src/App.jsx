@@ -14,6 +14,8 @@ import Veggies from './Components/Veggies'
 import { routes } from './routes'
 import LoginForm from './Components/LoginForm'
 import { useRecipeStates } from './RecipeContext'
+import Counter from './Clase 21/Counter'
+import UserList from './Clase 21/UserList'
 
 function App() {
   
@@ -21,7 +23,9 @@ function App() {
 
   return (
     <div className="App">
-      {!auth && <Navbar/>}
+        {/* <Counter/> */}
+        <UserList/>
+      {/* {!auth && <Navbar/>}
           <Routes>
             { auth ? 
               <Route path='/' element={<LoginForm/>}/> 
@@ -40,7 +44,7 @@ function App() {
               <Route path='*' element={<NotFound/>}/>
             </>
             } 
-          </Routes>
+          </Routes> */}
     </div>
   )
 }
