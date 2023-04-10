@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { toast, ToastContainer } from 'react-toastify'
+import ErrorBoundary from '../Clase 25/ErrorBoundary'
 import { useRecipeStates } from '../RecipeContext'
 
 const RecipeSelected = () => {
@@ -12,14 +14,28 @@ const RecipeSelected = () => {
   useEffect(() => {
     fetch(url)
     .then(res => res.json())
-    .then(data => setRecipeSel(data))
+    .then(data => {
+      setRecipeSel(data);
+      toast('🦄 Wow so easy!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        })
+    })
   }, [params.id])
+
   let recipes = JSON.parse(localStorage.getItem('Recetas'))
+
   const addRecipe = () => {
     let arrRecipes = [...recipes, recipeSel]
     localStorage.setItem('Recetas', JSON.stringify(arrRecipes))
   }
-  console.log(recipes)
+
   return (
     <div>
         <h1>Receta seleccionada: </h1>

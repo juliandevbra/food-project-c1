@@ -4,11 +4,16 @@ import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 import Context from './RecipeContext'
 import './index.css'
+import ErrorBoundary from './Clase 25/ErrorBoundary'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
-    <Context>
-      <App />
-    </Context> 
-  </BrowserRouter>
+  
+    <BrowserRouter>
+      <Context>
+        <ErrorBoundary>
+          <App />
+        </ErrorBoundary>
+      </Context> 
+    </BrowserRouter>
+ 
 )
