@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { toast, ToastContainer } from 'react-toastify'
+import { toast } from 'react-toastify'
 import ErrorBoundary from '../Clase 25/ErrorBoundary'
 import { useRecipeStates } from '../RecipeContext'
 
@@ -16,7 +16,7 @@ const RecipeSelected = () => {
     .then(res => res.json())
     .then(data => {
       setRecipeSel(data);
-      toast('🦄 Wow so easy!', {
+      toast('🥫 Se ha cargado la receta correctamente',{
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -24,8 +24,8 @@ const RecipeSelected = () => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "light",
-        })
+        theme: "dark",
+      })
     })
   }, [params.id])
 

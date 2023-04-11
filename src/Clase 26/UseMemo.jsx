@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 
 const UseMemo = () => {
     const [theme, setTheme] = useState(false)
     const [count, setCount] = useState(0)
-    const doubleCount = loadingFunction(count)
+    const doubleCount = useMemo(() => {
+      return loadingFunction(count)
+    }, [count]) 
 
     const themeStyle = {
         backgroundColor: theme ? 'black' : 'white',
